@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+  background: linear-gradient(to left top, #fbedbb, #fff);
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.sidebar {
+  height: calc(100vh - 80px);
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  max-width: 230px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.pointer {
+  cursor: pointer;
+}
+.header {
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+.text-start {
+  text-align: start;
+}
+
+.fw-light {
+  font-weight: normal !important;
+}
+.brand-img {
+  width: 30vw;
+  border-radius: 12px;
+}
+.auth-card {
+  background-color: #fefcf5 !important;
+  border: none !important;
+  box-shadow: 5px 12px 20px rgba(36, 37, 38, 0.13);
+}
+.signup-link {
+  margin-top: 8px;
+  color: rgb(114, 114, 255);
+}
+.signup-link > span {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
