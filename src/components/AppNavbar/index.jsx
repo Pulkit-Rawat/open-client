@@ -7,12 +7,11 @@ import SampleLogo from "../../assets/logo.png";
 import "react-toastify/dist/ReactToastify.css";
 
 const AppNavbar = () => {
-  let userName = localStorage.getItem("userName") || "";
-  let role = localStorage.getItem("role") == 1 ? "Manager" : "Employee";
+  let userName = localStorage.getItem("name") || "";
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/");
+    navigate("/login");
   };
   return (
     <div>
@@ -27,12 +26,11 @@ const AppNavbar = () => {
           />
           <div className="d-flex align-items-center">
             <p className="mx-2">{userName}</p>
-            <small>({role})</small>
           </div>
         </NavbarBrand>
         <Nav className="ml-auto- w-100" navbar>
           <NavItem className="d-flex flex-grow-1 justify-content-center align-items-center">
-            <b>Employee Managment System</b>
+            <b>Chatbot AI</b>
           </NavItem>
           <NavItem>
             <NavLink href="#" onClick={handleLogout}>

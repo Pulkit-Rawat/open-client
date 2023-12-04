@@ -2,25 +2,12 @@ import axios from "axios";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import EmsLogo from "../../assets/ems-brand.png";
-import {
-  Alert,
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
-  Container,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  Row,
-  Col,
-} from "reactstrap";
+import { toast } from "react-toastify";
+import { Alert, Button, Card, CardBody, CardHeader, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 import * as Yup from "yup";
 
+import CBLogo from "../../assets/images/cblogo.jpg";
 import { api } from "../../utilities/axios";
-import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -43,12 +30,11 @@ const Login = () => {
   const handleSubmit = async (values) => {
     try {
       let { data } = await api.post("/login", values);
-      console.log("res", data);
       if (data.success) {
         localStorage.setItem("token", data.data.token);
         localStorage.setItem("role", data.data.role);
         localStorage.setItem("userName", data.data.userName);
-        setTimeout(() => navigate("/dashboard"), 1000);
+        navigate("/");
         return;
       }
       if (!data.success) {
@@ -68,7 +54,7 @@ const Login = () => {
     <>
       <Row className="align-items-center justify-content-center h-100 m-0 p-0">
         <Col md={4}>
-          <img src={EmsLogo} className="brand-img" alt="" />
+          <img src={CBLogo} className="brand-img" alt="" />
         </Col>
         <Col md={4}>
           <Card className="auth-card">
@@ -111,7 +97,7 @@ const Login = () => {
                   color="primary"
                   className="btn-primary mt-2"
                 >
-                  Log In
+                  Sign In
                 </Button>
               </Form>
               <p className="signup-link">

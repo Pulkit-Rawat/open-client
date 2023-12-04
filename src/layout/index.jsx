@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppNavbar from "../components/AppNavbar";
 import AppSidebar from "../components/AppSidebar";
 import { Container, Row, Col } from "reactstrap";
-const AppLayout = (props) => {
+import { Outlet, useNavigate } from "react-router-dom";
+const ProtectedRoute = () => {
+  const navigate = useNavigate();
+  const isAuthenticated = localStorage.getItem("token") ? true : false;
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <Container className="m-0 p-0" fluid>
       <Row className="m-0 p-0">
@@ -13,11 +23,11 @@ const AppLayout = (props) => {
           <AppSidebar />
         </Col>
         <Col xs={12} md={10} className="pt-3 mx-0 px-0">
-          {props.children}
+          <Outlet />
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default AppLayout;
+export default ProtectedRoute;

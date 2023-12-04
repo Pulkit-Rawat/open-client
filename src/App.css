@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background: linear-gradient(to left top, #fbedbb, #fff);
+  background: linear-gradient(to left top, #F15A42, #fff);
 }
 
 .App-logo {
@@ -63,7 +63,7 @@
   border-radius: 12px;
 }
 .auth-card {
-  background-color: #fefcf5 !important;
+  background-color: #ffe3df !important;
   border: none !important;
   box-shadow: 5px 12px 20px rgba(36, 37, 38, 0.13);
 }
