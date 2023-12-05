@@ -21,3 +21,19 @@ code {
 p {
   margin-bottom: 0 !important;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+:hover {
+  &::-webkit-scrollbar-thumb {
+    background-color: #2e3a59;
+    border-radius: 8px;
+  }
+}
