@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Input } from "reactstrap";
-import { api } from "../../utilities/axios";
 
-// import socketIO from 'socket.io-client';
+import { api } from "../../utilities/axios";
 import { socket } from "../../utilities/socket";
 import ChatBox from "./ChatBox";
 
