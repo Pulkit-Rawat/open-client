@@ -10,7 +10,7 @@ import "./App.css";
 const Dashboard = lazy(() => import("./views/Dashboard"));
 const Chat = lazy(() => import("./views/Chat"));
 const Settings = lazy(() => import("./views/Settings"));
-const ProtectedRoute = lazy(() => import('./layout'))
+const ProtectedRoute = lazy(() => import("./layout"));
 
 const App = () => {
   return (

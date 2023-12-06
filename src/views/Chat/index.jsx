@@ -50,7 +50,7 @@ const Chat = () => {
 
   return (
     <div>
-      <div>
+      <div className="mt-2">
         <h4>Chat</h4>
       </div>
       <ChatBox records={records} />
@@ -64,7 +64,9 @@ const Chat = () => {
               placeholder="Enter a text..."
               onChange={({ target: { value } }) => setMsg(value)}
             />
-            <Button color="success" type="submit">Send</Button>
+            <Button color="success" type="submit">
+              Send
+            </Button>
           </div>
         </form>
       </div>

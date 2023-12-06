@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 import "./styles.scss";
+import moment from "moment/moment";
 
 const ChatBox = ({ records = [] }) => {
   const element = document.getElementById(`c-box_btm`);
@@ -22,11 +23,12 @@ const ChatBox = ({ records = [] }) => {
                 } text-start item-${index + 1}`}
               >
                 {item.Q || item.A}
+              <span className="chat-timestamp">{moment(item.createdAt).format('DD-mm-yyyy hh:mm a')}</span>
               </p>
             </div>
           ))
         : ""}
-      <div id="c-box_btm" /> {/* for bottom scrolling to bottom  */}
+      <div id="c-box_btm" /> {/* bottom scroll ref element  */}
     </div>
   );
 };

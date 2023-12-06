@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Nav, NavItem } from "reactstrap";
 
-import "./sidebar.scss";
+import "./styles.scss";
 
 const AppSidebar = () => {
   const [activeTab, setActiveTab] = useState(1);
   const { pathname } = useLocation();
-
 
   useEffect(() => {
     if (pathname.includes("/employees")) {
@@ -20,24 +18,19 @@ const AppSidebar = () => {
   }, [pathname]);
 
   return (
-    <Nav vertical className="sidebar  pt-3 ">
-      <NavItem
-        className={`${activeTab == 1 && "nav-active"} pointer`}
-        onClick={() => setActiveTab(1)}
-      >
-        <Link to="/app/chat" className="text-dark nav-link text-start">
-          Chat
-        </Link>
-      </NavItem>
-      <NavItem
-        className={`${activeTab == 2 && "nav-active"} pointer`}
-        onClick={() => setActiveTab(2)}
-      >
-        <Link to="/settings" className="text-dark nav-link text-start">
-          Settings
-        </Link>
-      </NavItem>
-    </Nav>
+    <div className="sidebar">
+      <ul>
+        <li>
+          <Link to="/">Dashboard</Link>
+        </li>
+        <li>
+          <Link to="/app/chat">Chat</Link>
+        </li>
+        <li>
+          <Link to="/">Settings</Link>
+        </li>
+      </ul>
+    </div>
   );
 };
 

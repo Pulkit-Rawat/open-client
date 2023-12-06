@@ -5,6 +5,7 @@ import { Button, Nav, Navbar, NavbarBrand, NavItem, NavLink } from "reactstrap";
 import SampleLogo from "../../assets/logo.png";
 
 import "react-toastify/dist/ReactToastify.css";
+import "./styles.scss"
 
 const AppNavbar = () => {
   let userName = localStorage.getItem("name") || "";
@@ -14,7 +15,7 @@ const AppNavbar = () => {
     navigate("/login");
   };
   return (
-    <div>
+    <div className="app-navbar">
       <Navbar color="light" light expand="md" className="header">
         <NavbarBrand href="/" className="d-flex align-items-center">
           <img

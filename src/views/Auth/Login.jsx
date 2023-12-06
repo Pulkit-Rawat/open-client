@@ -1,9 +1,19 @@
-import axios from "axios";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Alert, Button, Card, CardBody, CardHeader, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
+import {
+  Alert,
+  Button,
+  Card,
+  CardBody,
+  Col,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Row,
+} from "reactstrap";
 import * as Yup from "yup";
 
 import CBLogo from "../../assets/images/cblogo.jpg";
@@ -35,7 +45,7 @@ const Login = () => {
         localStorage.setItem("role", data.data.role);
         localStorage.setItem("userName", data.data.userName);
         localStorage.setItem("uID", data.data.uID);
-        navigate("/");
+        navigate("/app/chat");
         return;
       }
       if (!data.success) {

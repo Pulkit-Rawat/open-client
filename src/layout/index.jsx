@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { Col, Container, Row } from "reactstrap";
+
 import AppNavbar from "../components/AppNavbar";
 import AppSidebar from "../components/AppSidebar";
-import { Container, Row, Col } from "reactstrap";
-import { Outlet, useNavigate } from "react-router-dom";
+
+import "./styles.scss";
+
 const ProtectedRoute = () => {
   const navigate = useNavigate();
   const isAuthenticated = localStorage.getItem("token") ? true : false;
@@ -19,13 +23,12 @@ const ProtectedRoute = () => {
         <Col xs={12} className="px-0">
           <AppNavbar />
         </Col>
-        <Col md={2} className="bg-light px-0 d-none d-md-inline mx-0">
-          <AppSidebar />
-        </Col>
-        <Col xs={12} md={10} className="pt-3 mx-0 px-0">
-          <Outlet />
-        </Col>
       </Row>
+
+      <div className="app-wrapper">
+        <AppSidebar />
+        <Outlet />
+      </div>
     </Container>
   );
 };

@@ -1,7 +1,17 @@
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Button, Card, CardBody, Col, Form, FormGroup, Input, Label, Row } from "reactstrap";
+import {
+  Button,
+  Card,
+  CardBody,
+  Col,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Row,
+} from "reactstrap";
 import * as Yup from "yup";
 
 import CBLogo from "../../assets/images/cblogo.jpg";
@@ -38,7 +48,7 @@ const Register = () => {
         localStorage.setItem("role", data.data.role);
         localStorage.setItem("userName", data.data.userName);
         localStorage.setItem("uID", data.data.uID);
-        setTimeout(() => navigate("/"), 1000);
+        navigate("/app/chat");
         return;
       }
       if (!data.success) {
@@ -68,9 +78,7 @@ const Register = () => {
                     onChange={formik.handleChange}
                   />
                   {formik.errors.name && (
-                    <span style={{ color: "red" }}>
-                      {formik.errors.name}
-                    </span>
+                    <span style={{ color: "red" }}>{formik.errors.name}</span>
                   )}
                 </FormGroup>
                 <FormGroup className="text-start">
