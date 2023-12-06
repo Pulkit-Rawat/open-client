@@ -11,14 +11,18 @@ import {
   Input,
   Label,
   Row,
+  Spinner,
 } from "reactstrap";
 import * as Yup from "yup";
 
 import CBLogo from "../../assets/images/cblogo.jpg";
 import { api } from "../../utilities/axios";
+import { useState } from "react";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [isLoading, setLoading] = useState(false);
+
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Username is required"),
     email: Yup.string().email().required("Email is required"),
@@ -42,19 +46,24 @@ const Register = () => {
 
   const handleSubmit = async (values) => {
     try {
+      setLoading(true);
       const { data } = await api.post("/register", values);
       if (data.success) {
         localStorage.setItem("token", data.data.token);
         localStorage.setItem("role", data.data.role);
-        localStorage.setItem("userName", data.data.userName);
+        localStorage.setItem("userName", data.data.name);
         localStorage.setItem("uID", data.data.uID);
         navigate("/app/chat");
+        setLoading(false);
         return;
       }
       if (!data.success) {
+        setLoading(false);
         return toast.error(data.message || "Invalid credentials");
       }
     } catch (err) {
+      setLoading(false);
+      toast.error("Something went wrong");
       console.log(err);
     }
   };
@@ -117,8 +126,13 @@ const Register = () => {
                     </span>
                   )}
                 </FormGroup>
-                <Button type="submit" color="primary">
-                  Sign Up
+                <Button
+                  className="w-50"
+                  disabled={isLoading}
+                  type="submit"
+                  color="primary"
+                >
+                  {isLoading ? <Spinner size={"sm"} /> : "Sign Up"}
                 </Button>
               </Form>
               <p className="signup-link">

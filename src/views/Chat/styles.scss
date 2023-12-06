@@ -16,6 +16,7 @@
   .chat-item {
     margin: 10px 0;
     p {
+      min-width: 120px;
       position: relative;
       width: fit-content;
       max-width: 80%;

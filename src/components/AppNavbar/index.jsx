@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./styles.scss"
 
 const AppNavbar = () => {
-  let userName = localStorage.getItem("name") || "";
+  let userName = localStorage.getItem("userName") || "";
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");

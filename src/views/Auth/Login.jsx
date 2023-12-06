@@ -13,6 +13,7 @@ import {
   Input,
   Label,
   Row,
+  Spinner,
 } from "reactstrap";
 import * as Yup from "yup";
 
@@ -22,6 +23,8 @@ import { api } from "../../utilities/axios";
 const Login = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
+  const [isLoading, setLoading] = useState(false);
+
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required "),
     password: Yup.string().required("Password is required"),
@@ -39,19 +42,24 @@ const Login = () => {
   });
   const handleSubmit = async (values) => {
     try {
+      setLoading(true);
       let { data } = await api.post("/login", values);
       if (data.success) {
         localStorage.setItem("token", data.data.token);
         localStorage.setItem("role", data.data.role);
-        localStorage.setItem("userName", data.data.userName);
+        localStorage.setItem("userName", data.data.name);
         localStorage.setItem("uID", data.data.uID);
         navigate("/app/chat");
+        setLoading(false);
+
         return;
       }
       if (!data.success) {
+        setLoading(false);
         return toast.error(data.message || "Invalid credentials");
       }
     } catch (err) {
+      setLoading(false);
       toast.error("Something went wrong");
       console.log(err);
     }
@@ -106,9 +114,10 @@ const Login = () => {
                 <Button
                   type="submit"
                   color="primary"
-                  className="btn-primary mt-2"
+                  className="btn-primary w-50 mt-2"
+                  disabled={isLoading}
                 >
-                  Sign In
+                  {isLoading ? <Spinner size={"sm"} /> : "Sign In"}
                 </Button>
               </Form>
               <p className="signup-link">
