@@ -27,7 +27,7 @@ const AppSidebar = () => {
           <Link to="/app/chat">Chat</Link>
         </li>
         <li>
-          <Link to="/">Settings</Link>
+          <Link to="/settings">Settings</Link>
         </li>
       </ul>
     </div>

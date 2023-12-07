@@ -49,6 +49,7 @@ const Login = () => {
         localStorage.setItem("role", data.data.role);
         localStorage.setItem("userName", data.data.name);
         localStorage.setItem("uID", data.data.uID);
+        localStorage.setItem("theme", 'light');
         navigate("/app/chat");
         setLoading(false);
 

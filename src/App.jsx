@@ -6,6 +6,7 @@ import Login from "./views/Auth/Login";
 import Register from "./views/Auth/Register";
 
 import "./App.css";
+import { useThemeContext } from "./hooks/useThemeToggle";
 
 const Dashboard = lazy(() => import("./views/Dashboard"));
 const Chat = lazy(() => import("./views/Chat"));
@@ -13,8 +14,10 @@ const Settings = lazy(() => import("./views/Settings"));
 const ProtectedRoute = lazy(() => import("./layout"));
 
 const App = () => {
+  const {theme} = useThemeContext();
+  console.log("theme", theme);
   return (
-    <div className="App" style={{ height: "100vh" }}>
+    <div className={`App ${theme == 'dark' ? 'dark-mode' : ''}`} style={{ height: "100vh" }}>
       <Suspense fallback={<div>Loading...</div>}>
         <Router>
           <Routes>

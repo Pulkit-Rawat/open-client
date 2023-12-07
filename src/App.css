@@ -1,6 +1,9 @@
 .App {
   text-align: center;
-  background: linear-gradient(to left top, #F15A42, #fff);
+  background: linear-gradient(to left top, #F15A42, #9d5757);
+}
+.App.dark-mode{
+  background: linear-gradient(to left top, rgb(83, 97, 132), #757575);
 }
 
 .App-logo {
