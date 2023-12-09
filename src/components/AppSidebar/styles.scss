@@ -31,3 +31,38 @@
     display: none;
   }
 }
+
+.account-options {
+  .accordion {
+    &-item {
+      border: none;
+      background: transparent;
+    }
+    &-button {
+      background: transparent;
+      padding: 4px 0;
+      font-size: 20px;
+      &:focus {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+    &-body {
+      padding: 0;
+      ul,
+      li {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 14px;
+      }
+      li{
+        a{
+          all: unset;
+        }
+      }
+      li:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
