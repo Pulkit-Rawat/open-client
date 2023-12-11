@@ -1,0 +1,20 @@
+.dropzone{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-box{
+    background: #fff;
+    width: 700px;
+    min-height: 240px;
+    border: 4px dashed blue;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  &-label{
+    font-size: 24px;
+    color: blue;
+  }
+}

@@ -5,6 +5,7 @@
   height: calc(100vh - 60px);
   top: 0;
   left: 0;
+  border-right: 1px solid #dcdcdc;
   ul {
     padding: 8px 4px 0 4px;
     li {
@@ -55,8 +56,8 @@
         padding-right: 0;
         font-size: 14px;
       }
-      li{
-        a{
+      li {
+        a {
           all: unset;
         }
       }
