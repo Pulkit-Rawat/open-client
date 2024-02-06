@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import AccountOptions from "./AccountOptions"
+import AccountOptions from "./AccountOptions";
 
 import "./styles.scss";
 
@@ -30,6 +30,14 @@ const AppSidebar = () => {
         </li>
         <li>
           <Link to="/settings">Settings</Link>
+        </li>
+        <li>
+          <Link to="/employees">Employees</Link>
+        </li>
+        <li>
+          <Link to="products">
+            Products
+          </Link>
         </li>
         <li>
           <Link to="#">

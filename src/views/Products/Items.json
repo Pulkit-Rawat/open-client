@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "brand": "APPLE",
+      "model": "15",
+      "cp": 56000,
+      "sp": 86000
+    },
+    {
+      "brand": "SAMSUNG",
+      "model": "S24",
+      "cp": 110000,
+      "sp": 125000
+    },
+    {
+      "brand": "VIVO",
+      "model": "V1 PRo",
+      "cp": 56000,
+      "sp": 60000
+    },
+    {
+      "brand": "MI",
+      "model": "NOTE 13 PRO",
+      "cp": 75000,
+      "sp": 81000
+    }
+  ]
+}
