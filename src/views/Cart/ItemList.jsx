@@ -1,7 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Button, Card } from "reactstrap";
 
+import { removeFromCart } from "../../reducers/productsReducer";
+
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const removeItemFromCart = (pID) => {
+    dispatch(removeFromCart(pID));
+  };
   return (
     <div>
       {items.length
@@ -13,8 +21,17 @@ const ItemList = ({ items }) => {
                 <p>{item?.sp || "-"}</p>
               </div>
               <div>
-                <Button color="primary" className="px-3" outline>
+                <Button size="sm" color="primary" className="px-3" outline>
                   Buy
+                </Button>
+                <Button
+                  onClick={() => removeItemFromCart(item.pID)}
+                  size="sm"
+                  color="danger"
+                  className="px-3 ms-1"
+                  outline
+                >
+                  Delete
                 </Button>
               </div>
             </Card>

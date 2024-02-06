@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { Button, Card } from "reactstrap";
@@ -28,6 +28,10 @@ const Cart = ({ item = {} }) => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    setItems(productsState.items)
+  }, [productsState.items])
   
   return (
     <div className="w-100">
