@@ -9,6 +9,10 @@ import Login from "./views/Auth/Login";
 import Register from "./views/Auth/Register";
 
 import "./App.css";
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 const Dashboard = lazy(() => import("./views/Dashboard"));
 const Chat = lazy(() => import("./views/Chat"));
